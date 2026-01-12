@@ -1,17 +1,19 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
 
 class Settings(BaseSettings):
-    app_env: str = "development"
-    app_name: str = "WABA Backend Demo"
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
-    host: str = "0.0.0.0"
-    port: int = 8000
+    APP_ENV: str = "development"
+    APP_NAME: str = "WABA Backend Demo"
 
-    waba_verify_token: str | None = None
-    waba_access_token: str | None = None
-    waba_phone_number_id: str | None = None
+    HOST: str = "0.0.0.0"
+    PORT: int = 8000
 
-    class Config:
-        env_file = ".env"
+    LOG_LEVEL: str = "INFO"
+
+    # WABA / Meta
+    WABA_VERIFY_TOKEN: str = "dev_verify_token"
+
 
 settings = Settings()

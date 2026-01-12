@@ -1,0 +1,28 @@
+### Webhook event (POST)
+POST http://localhost:8000/webhook
+Content-Type: application/json
+
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "123",
+      "changes": [
+        {
+          "field": "messages",
+          "value": {
+            "messages": [
+              {
+                "from": "5511999999999",
+                "id": "wamid.abc123",
+                "timestamp": "1710000000",
+                "type": "text",
+                "text": { "body": "oi" }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
